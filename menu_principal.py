@@ -1,5 +1,6 @@
 import fruteria
 import tienda_de_ropa as tienda
+import libreria_hogwarts as hogwarts
 
 def mostrar_menu():
     while True:
@@ -8,16 +9,19 @@ def mostrar_menu():
         print("="*30)
         print("1. Frutería Vitalidad")
         print("2. Tienda de Ropa")
-        print("3. Salir")
+        print("3. Librería Hogwarts")
+        print("4. Salir")
         print("="*30)
         
-        opcion = input("Seleccione una opción (1-3): ")
+        opcion = input("Seleccione una opción (1-4): ")
         
         if opcion == "1":
             fruteria.main()  # Llama a la función main del archivo fruteria.py
         elif opcion == "2":
             tienda.main()    # Llama a la función main del archivo tienda_de_ropa.py
         elif opcion == "3":
+            hogwarts.main()  # Llama a la función main del archivo libreria_hogwarts.py
+        elif opcion == "4":
             print("¡Hasta luego!")
             break
         else:
