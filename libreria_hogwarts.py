@@ -94,15 +94,15 @@ def main():
             print("=" * 70)
             
             # Verificar si es necesario reabastecer
-            if inventario_final < 10:
-                print("\n⚠️  ALERTA DE STOCK BAJO:")
-                print(f"   Quedan solo {inventario_final} libros en inventario.")
-                print("   Se recomienda realizar un nuevo pedido pronto.")
-                print("=" * 70)
-            elif inventario_final == 0:
+            if inventario_final == 0:
                 print("\n🚨 ALERTA DE STOCK AGOTADO:")
                 print("   No quedan libros en inventario.")
                 print("   Es urgente realizar un nuevo pedido.")
+                print("=" * 70)
+            elif inventario_final < 10:
+                print("\n⚠️  ALERTA DE STOCK BAJO:")
+                print(f"   Quedan solo {inventario_final} libros en inventario.")
+                print("   Se recomienda realizar un nuevo pedido pronto.")
                 print("=" * 70)
             else:
                 print("\n✅ Estado del inventario: NORMAL")
