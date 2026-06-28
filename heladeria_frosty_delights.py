@@ -7,7 +7,7 @@
 # ============================================================================
 
 def mostrar_menu():
-    """Muestra el menú de opciones al usuario"""
+    """Muestra menú de opciones al usuario"""
     print("\n" + "=" * 70)
     print("           HELADERÍA 'FROSTY DELIGHTS' - GESTIÓN DE INVENTARIO")
     print("=" * 70)
