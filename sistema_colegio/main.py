@@ -1,4 +1,4 @@
-# Programa principal que importa los módulos y ejecuta el caso de prueba
+# Programa principal que importa los módulos 
 
 from sistema_colegio import registro_empleados 
 from sistema_colegio import calculos_rrhh
