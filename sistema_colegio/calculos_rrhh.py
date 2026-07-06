@@ -1,4 +1,3 @@
-# calculos_rrhh.py
 # Módulo que utiliza el módulo estándar datetime para cálculos de RRHH
 
 from datetime import datetime
