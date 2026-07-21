@@ -4,6 +4,7 @@ import libreria_hogwarts as hogwarts
 import heladeria_frosty_delights as heladeria
 from sistema_colegio import main as main_program
 from evian_gestion import main as evian_main
+from centro_eventos import main as centro_eventos
 
 def mostrar_menu():
     while True:
@@ -16,10 +17,11 @@ def mostrar_menu():
         print("4. Heladería Frosty Delights")
         print("5. Sistema de Gestión de Empleados")
         print("6. Sistema de Gestion de Empresa Evian")
-        print("7. Salir")
+        print("7. Sistema de Gestión de Eventos")
+        print("8. Salir")
         print("="*30)
         
-        opcion = input("Seleccione una opción (1-7): ")
+        opcion = input("Seleccione una opción (1-8): ")
         
         if opcion == "1":
             fruteria.main()  # Llama a la función main del archivo fruteria.py
@@ -34,6 +36,8 @@ def mostrar_menu():
         elif opcion == "6":
             evian_main.ejecutar_sistema()  # Llama a la función main del archivo evian_gestion.py
         elif opcion == "7":
+            centro_eventos.main()  # Llama a la función main del archivo centro_eventos.py
+        elif opcion == "8":
             print("¡Hasta luego!")
             break
         else:
