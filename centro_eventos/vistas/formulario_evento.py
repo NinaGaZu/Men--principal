@@ -43,7 +43,29 @@ class FormularioEvento:
         self.construir_formulario()
     
     def construir_formulario(self):
-        """Construye todos los elementos del formulario"""
+        """Construye todos los elementos del formulario con scroll"""
+        # Crear Canvas y Scrollbar
+        canvas = tk.Canvas(self.parent)
+        scrollbar = tk.Scrollbar(self.parent, orient="vertical", command=canvas.yview)
+        
+        # Frame contenedor dentro del canvas
+        self.scrollable_frame = tk.Frame(canvas)
+        
+        # Configurar el scroll
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        
+        # Crear ventana dentro del canvas
+        canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        
+        # Empaquetar canvas y scrollbar
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+        
+        # Construir los frames dentro del scrollable_frame
         self._construir_frame_detalles()
         self._construir_frame_categoria()
         self._construir_frame_estado()
@@ -55,7 +77,7 @@ class FormularioEvento:
     def _construir_frame_detalles(self):
         """Construye el frame de detalles del evento"""
         frame_detalles = tk.LabelFrame(
-            self.parent, text="Detalles del Evento",
+            self.scrollable_frame, text="Detalles del Evento",
             font=("Arial", 10, "bold"), padx=10, pady=10
         )
         frame_detalles.pack(pady=10, padx=10, fill="x")
@@ -81,7 +103,7 @@ class FormularioEvento:
     def _construir_frame_categoria(self):
         """Construye el frame de categoría y tipo de evento"""
         frame_categoria = tk.LabelFrame(
-            self.parent, text="Categoría y Tipo de Evento",
+            self.scrollable_frame, text="Categoría y Tipo de Evento",
             font=("Arial", 10, "bold"), padx=10, pady=10
         )
         frame_categoria.pack(pady=10, padx=10, fill="x")
@@ -135,7 +157,7 @@ class FormularioEvento:
     def _construir_frame_estado(self):
         """Construye el frame de estado del evento"""
         frame_estado = tk.LabelFrame(
-            self.parent, text="Estado del Evento",
+            self.scrollable_frame, text="Estado del Evento",
             font=("Arial", 10, "bold"), padx=10, pady=10
         )
         frame_estado.pack(pady=10, padx=10, fill="x")
@@ -157,7 +179,7 @@ class FormularioEvento:
     def _construir_frame_asistentes(self):
         """Construye el frame de número de asistentes"""
         frame_asistentes = tk.LabelFrame(
-            self.parent, text="Número de Asistentes",
+            self.scrollable_frame, text="Número de Asistentes",
             font=("Arial", 10, "bold"), padx=10, pady=10
         )
         frame_asistentes.pack(pady=10, padx=10, fill="x")
@@ -172,7 +194,7 @@ class FormularioEvento:
     def _construir_frame_descripcion(self):
         """Construye el frame de descripción del evento"""
         frame_descripcion = tk.LabelFrame(
-            self.parent, text="Descripción del Evento",
+            self.scrollable_frame, text="Descripción del Evento",
             font=("Arial", 10, "bold"), padx=10, pady=10
         )
         frame_descripcion.pack(pady=10, padx=10, fill="x")
@@ -185,7 +207,7 @@ class FormularioEvento:
     def _construir_frame_ubicacion(self):
         """Construye el frame de ubicación del evento"""
         frame_ubicacion = tk.LabelFrame(
-            self.parent, text="Ubicación del Evento",
+            self.scrollable_frame, text="Ubicación del Evento",
             font=("Arial", 10, "bold"), padx=10, pady=10
         )
         frame_ubicacion.pack(pady=10, padx=10, fill="x")
@@ -201,7 +223,7 @@ class FormularioEvento:
     
     def _construir_botones(self):
         """Construye los botones de acción"""
-        frame_botones = tk.Frame(self.parent)
+        frame_botones = tk.Frame(self.scrollable_frame)
         frame_botones.pack(pady=20)
         
         btn_registrar = tk.Button(
