@@ -5,6 +5,7 @@ import heladeria_frosty_delights as heladeria
 from sistema_colegio import main as main_program
 from evian_gestion import main as evian_main
 from centro_eventos import main as centro_eventos
+from agencia_espacial import main as agencia_espacial_main
 
 def mostrar_menu():
     while True:
@@ -18,10 +19,11 @@ def mostrar_menu():
         print("5. Sistema de Gestión de Empleados")
         print("6. Sistema de Gestion de Empresa Evian")
         print("7. Sistema de Gestión de Eventos")
-        print("8. Salir")
+        print("8. Sistema de Gestión de Agencia Espacial")
+        print("9. Salir")
         print("="*30)
         
-        opcion = input("Seleccione una opción (1-8): ")
+        opcion = input("Seleccione una opción (1-9): ")
         
         if opcion == "1":
             fruteria.main()  # Llama a la función main del archivo fruteria.py
@@ -38,6 +40,8 @@ def mostrar_menu():
         elif opcion == "7":
             centro_eventos.main()  # Llama a la función main del archivo centro_eventos.py
         elif opcion == "8":
+            agencia_espacial_main.main()  # Llama a la función main del archivo agencia_espacial/main.py
+        elif opcion == "9":
             print("¡Hasta luego!")
             break
         else:
